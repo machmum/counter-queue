@@ -10,7 +10,7 @@ import (
 // register function to Counter
 //
 // IntermediateChan: make sure no data sent to closed channel
-// JobsChan: actual processing data
+// JobsChan: actual processing person
 type Counter struct {
 	IntermediateChan chan Data
 	JobsChan         chan Data
@@ -74,10 +74,10 @@ func (c Counter) WorkerJobs(wg *sync.WaitGroup, index int) {
 	fmt.Printf("Worker %d starting\n", index)
 	for each := range c.JobsChan {
 		// simulate work taking between 1-3 seconds
-		fmt.Printf("Worker %d started job %d\n", index, each.Index)
+		fmt.Printf("Worker %d started job person %d\n", index, each.Index)
 		sleepFor := time.Second * time.Duration(each.Duration)
 		time.Sleep(sleepFor)
-		fmt.Printf("Worker %d finished processing job %d in %ds\n", index, each.Index, sleepFor)
+		fmt.Printf("Worker %d finished processing job person %d in %s\n", index, each.Index, sleepFor)
 	}
 	fmt.Printf("Worker %d interrupted\n", index)
 }
