@@ -8,5 +8,8 @@ docker build -t counter-queue .
 
 ### Run 
 ```
-docker run -it counter-queue bin/counter-queue
+docker run -it counter-queue
 ```
+
+### Expected result
+![Image of result](https://ibb.co/Sy40nHF)

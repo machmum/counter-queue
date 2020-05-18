@@ -46,3 +46,6 @@ RUN chown -R machmum:machmum /usr/share/machmum/counter-queue
 
 # Make docker container rootless
 USER machmum
+
+# Run the binary
+ENTRYPOINT ["./bin/counter-queue"]
