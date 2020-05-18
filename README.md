@@ -12,4 +12,5 @@ docker run -it counter-queue
 ```
 
 ### Expected result
-![Image of result](https://ibb.co/Sy40nHF)
+![Image-result]
+(https://ibb.co/Sy40nHF)
