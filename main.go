@@ -70,8 +70,8 @@ func main() {
 	wg.Add(numOfCounters)
 
 	// start [numOfCounters] workers
-	for i := 0; i < numOfCounters; i++ {
-		go c.WorkerJobs(wg, i)
+	for i := 1; i < numOfCounters+1; i++ {
+		go c.LoketJobs(wg, i)
 	}
 
 	// handle sigterm and await termChan signal

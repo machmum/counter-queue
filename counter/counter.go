@@ -32,7 +32,7 @@ func NewCounter() Counter {
 // Start:
 // start adding process to counter
 func (c Counter) Start(simulationTime []int) {
-	eventIndex := 0
+	eventIndex := 1
 	for i := range simulationTime {
 		c.CallbackFunc(eventIndex, simulationTime[i])
 		eventIndex++
@@ -66,18 +66,18 @@ func (c Counter) StartProcess(ctx context.Context) {
 	}
 }
 
-// WorkerJobs:
+// LoketJobs:
 // starts a worker function that will range on the jobsChan until that channel closes
-func (c Counter) WorkerJobs(wg *sync.WaitGroup, index int) {
+func (c Counter) LoketJobs(wg *sync.WaitGroup, index int) {
 	defer wg.Done()
 
-	fmt.Printf("Worker %d starting\n", index)
+	fmt.Printf("Loket %d starting\n", index)
 	for each := range c.JobsChan {
 		// simulate work taking between 1-3 seconds
-		fmt.Printf("Worker %d started job person %d\n", index, each.Index)
+		fmt.Printf("Loket %d started job person %d\n", index, each.Index)
 		sleepFor := time.Second * time.Duration(each.Duration)
 		time.Sleep(sleepFor)
-		fmt.Printf("Worker %d finished processing job person %d in %s\n", index, each.Index, sleepFor)
+		fmt.Printf("Loket %d finished processing job person %d in %s\n", index, each.Index, sleepFor)
 	}
-	fmt.Printf("Worker %d interrupted\n", index)
+	fmt.Printf("Loket %d interrupted\n", index)
 }
